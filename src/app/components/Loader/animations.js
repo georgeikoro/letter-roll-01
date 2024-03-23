@@ -1,3 +1,5 @@
+// animations.js //
+
 import { gsap } from "gsap";
 
 export const collapse = (loaderRef) => {
@@ -21,122 +23,20 @@ export const collapse = (loaderRef) => {
   return tl;
 };
 
-export const introAnimation = (
-  wordGroupsRef,
-  wordGroupsRefTwo,
-  wordGroupsRefThree
-) => {
+export const introAnimation = (wordGroupsRefs) => {
   const tl = gsap.timeline();
-
-  tl.to(wordGroupsRef.current, {
-    yPercent: -80,
-    duration: 11,
-    ease: "power3.inOut",
-  })
-    .to(
-      wordGroupsRefTwo.current,
+  const durations = [11, 12, 13];
+  wordGroupsRefs.forEach((wordGroupRef, index) => {
+    tl.to(
+      wordGroupRef.current,
       {
         yPercent: -80,
-        duration: 12,
+        duration: durations[index],
         ease: "power3.inOut",
       },
-      "="
-    )
-    .to(
-      wordGroupsRefThree.current,
-      {
-        yPercent: -80,
-        duration: 13,
-        ease: "power3.inOut",
-      },
-      "="
+      index === 0 ? "" : "="
     );
-
-  return tl;
-};
-
-export const introAnimationTwo = (
-  wordGroupsRefFour,
-  wordGroupsRefFive,
-  wordGroupsRefSix
-) => {
-  const tl = gsap.timeline();
-  tl.to(wordGroupsRefFour.current, {
-    yPercent: -80,
-    duration: 10,
-    ease: "power3.inOut",
-  })
-    .to(
-      wordGroupsRefFive.current,
-      {
-        yPercent: -80,
-        duration: 11,
-        ease: "power3.inOut",
-      },
-      "="
-    )
-    .to(
-      wordGroupsRefSix.current,
-      {
-        yPercent: -80,
-        duration: 12,
-        ease: "power3.inOut",
-      },
-      "="
-    );
-
-  return tl;
-};
-
-export const introAnimationThree = (
-  wordGroupsRefSeven,
-  wordGroupsRefEight,
-  wordGroupsRefNine
-) => {
-  const tl = gsap.timeline();
-  tl.to(wordGroupsRefSeven.current, {
-    yPercent: -80,
-    duration: 9,
-    ease: "power3.inOut",
-  })
-    .to(
-      wordGroupsRefEight.current,
-      {
-        yPercent: -80,
-        duration: 9,
-        ease: "power3.inOut",
-      },
-      "="
-    )
-    .to(
-      wordGroupsRefNine.current,
-      {
-        yPercent: -80,
-        duration: 11,
-        ease: "power3.inOut",
-      },
-      "="
-    );
-
-  return tl;
-};
-
-export const introAnimationFour = (wordGroupsRefTen, wordGroupsRefEleven) => {
-  const tl = gsap.timeline();
-  tl.to(wordGroupsRefTen.current, {
-    yPercent: -80,
-    duration: 12,
-    ease: "power3.inOut",
-  }).to(
-    wordGroupsRefEleven.current,
-    {
-      yPercent: -80,
-      duration: 14,
-      ease: "power3.inOut",
-    },
-    "="
-  );
-
+  });
   return tl;
 };
 
@@ -147,21 +47,18 @@ export const collapseWords = (loaderRef) => {
     duration: 3,
     ease: "expo.inOut",
   });
-
   return tl;
 };
 
-export const progressAnimation = (progressRef, progressNumberRef) => {
+export const progressAnimationTop = (progressRefTop, progressNumberRefTop) => {
   const tl = gsap.timeline();
-
-  tl.to(progressRef.current, {
+  tl.to(progressRefTop.current, {
     scaleX: 1,
     duration: 12,
     ease: "power3.inOut",
   })
-
     .to(
-      progressNumberRef.current,
+      progressNumberRefTop.current,
       {
         x: "100vw",
         duration: 12,
@@ -170,7 +67,7 @@ export const progressAnimation = (progressRef, progressNumberRef) => {
       "<"
     )
     .to(
-      progressNumberRef.current,
+      progressNumberRefTop.current,
       {
         textContent: "100%",
         duration: 12,
@@ -178,28 +75,25 @@ export const progressAnimation = (progressRef, progressNumberRef) => {
       },
       "<"
     )
-    .to(progressNumberRef.current, {
+    .to(progressNumberRefTop.current, {
       y: 24,
       autoAlpha: 0,
     });
-
   return tl;
 };
 
-export const progressAnimationTwo = (progressRefTwo, progressNumberRefTwo) => {
+export const progressAnimationBottom = (
+  progressRefBottom,
+  progressNumberRefBottom
+) => {
   const tl = gsap.timeline();
-
-  tl.to(
-    progressRefTwo.current,
-    {
-      scaleX: 1,
-      duration: 12,
-      ease: "power3.inOut",
-    },
-    "="
-  )
+  tl.to(progressRefBottom.current, {
+    scaleX: 1,
+    duration: 12,
+    ease: "power3.inOut",
+  })
     .to(
-      progressNumberRefTwo.current,
+      progressNumberRefBottom.current,
       {
         x: "100vw",
         duration: 12,
@@ -208,7 +102,7 @@ export const progressAnimationTwo = (progressRefTwo, progressNumberRefTwo) => {
       "<"
     )
     .to(
-      progressNumberRefTwo.current,
+      progressNumberRefBottom.current,
       {
         textContent: "100%",
         duration: 12,
@@ -216,10 +110,9 @@ export const progressAnimationTwo = (progressRefTwo, progressNumberRefTwo) => {
       },
       "<"
     )
-    .to(progressNumberRefTwo.current, {
+    .to(progressNumberRefBottom.current, {
       y: 24,
       autoAlpha: 0,
     });
-
   return tl;
 };

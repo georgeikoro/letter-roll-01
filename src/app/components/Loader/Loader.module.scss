@@ -1,3 +1,5 @@
+// module.scss //
+
 .loader {
   clip-path: polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%);
 
@@ -53,25 +55,25 @@
     font-size: 3.2rem;
   }
 
-  &__progressWrapper {
+  &__progressWrapperTop {
     position: absolute;
     top: 0;
     left: 0;
-    height: 5vh;
+    height: 9vh;
     width: 100%;
     z-index: 3;
   }
 
-  &__progressWrapperTwo {
+  &__progressWrapperBottom {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 5vh;
+    height: 9vh;
     width: 100%;
     z-index: 3;
   }
 
-  &__progress {
+  &__progressTop {
     height: 100%;
     width: 100%;
     background-color: #1d1e1f;
@@ -79,7 +81,7 @@
     transform-origin: left center;
   }
 
-  &__progressTwo {
+  &__progressBottom {
     height: 100%;
     width: 100%;
     background-color: #1d1e1f;
@@ -87,7 +89,7 @@
     transform-origin: left center;
   }
 
-  &__progressNumber {
+  &__progressNumberTop {
     position: absolute;
     left: -5vw;
     top: 50%;
@@ -98,7 +100,7 @@
     font-size: 3.2rem;
   }
 
-  &__progressNumberTwo {
+  &__progressNumberBottom {
     position: absolute;
     left: -5vw;
     top: 50%;

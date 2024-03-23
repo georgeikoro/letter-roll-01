@@ -1,10 +1,11 @@
+// page.js //
+
 "use client";
 
 import { useLayoutEffect, useState } from "react";
 import { gsap } from "gsap";
 
 import Loader from "./components/Loader";
-import Hero from "./components/Hero";
 
 const Home = () => {
   const [loaderFinished, setLoaderFinished] = useState(false);
@@ -21,12 +22,7 @@ const Home = () => {
     return () => context.revert();
   }, []);
 
-  return (
-    <main>
-      {loaderFinished ? <Hero /> : <Loader timeline={timeline} />}
-      {/* <Hero /> */}
-    </main>
-  );
+  return <main>{loaderFinished && <Loader timeline={timeline} />}</main>;
 };
 
 export default Home;
